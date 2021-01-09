@@ -18,3 +18,7 @@ let pokemonList = [
     height: 0.9
   }
 ];
+
+for (let i = 0; i < pokemonList.length; i++){
+    document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')</p>');
+}
