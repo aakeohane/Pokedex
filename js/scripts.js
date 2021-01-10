@@ -19,6 +19,14 @@ let pokemonList = [
   }
 ];
 
-for (let i = 0; i < pokemonList.length; i++){
-    document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')</p>');
+//  Lists pokemon by name and their height and if statement declares that they are tall
+
+for (let i = 0; i < pokemonList.length; i++)   {
+    if (pokemonList[i].height > 0.9){
+      document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') - Dang! She tall!</p>');
+    }
+
+    else{
+      document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')</p>');
+    }
 }
