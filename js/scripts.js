@@ -1,3 +1,4 @@
+let pokemonRepository = (function () {
 let pokemonList = [
   {
     name: 'Vaporeon',
@@ -13,15 +14,31 @@ let pokemonList = [
   },
   {
     name: 'Flareon',
-    type: ['fire', 'normal'],
+    type: ['fire', 'fox'],
     weight: 25,
     height: 0.9
   }
 ];
 
-//  Lists pokemon by name and their height and if statement declares that they are tall
+function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
 
-pokemonList.forEach(function (pokemon) {
+function getAll() {
+    return pokemonList;
+  }
+
+return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+
+//  Lists pokemon by name and their height and if statement declares that they are tall
+//  Calls pokemonList through IIFE
+
+pokemonRepository.getAll().forEach(function (pokemon) {
     if (pokemon.height >= 1){
       document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ') - Dang! She tall!</p>');
     }
