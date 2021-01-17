@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-  let pokemonList = [
+  let repository = [
     {
       name: 'Vaporeon',
       type: ['water', 'ice'],
@@ -21,28 +21,32 @@ let pokemonRepository = (function () {
   ];
 
   function add(pokemon) {
-      pokemonList.push(pokemon);
+      repository.push(pokemon);
   }
 
   function getAll() {
-      return pokemonList;
+      return repository;
   }
 
-  return {
+  function addListItem(pokemon)  {
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listPokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemonButtonStyle');
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
+  }
+
+  return  {
       add: add,
-      getAll: getAll
+      getAll: getAll,
+      addListItem: addListItem
   };
   })();
 
-
-//  Lists pokemon by name and their height and if statement declares that they are tall
+// Adds a list of buttons for each pokemon
 
 pokemonRepository.getAll().forEach(function (pokemon) {
-    if (pokemon.height >= 1){
-      document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ') - Dang! She tall!</p>');
-    }
-
-    else{
-      document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')</p>');
-    }
+  pokemonRepository.addListItem(pokemon);
 });
