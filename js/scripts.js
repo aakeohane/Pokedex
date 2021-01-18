@@ -28,6 +28,10 @@ let pokemonRepository = (function () {
       return repository;
   }
 
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
   function addListItem(pokemon)  {
     let pokemonList = document.querySelector('.pokemon-list');
     let listPokemon = document.createElement('li');
@@ -36,7 +40,13 @@ let pokemonRepository = (function () {
     button.classList.add('pokemonButtonStyle');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
+
+    // console log when pokemon button is clicked
+    button.addEventListener('click', function () {
+      showDetails(pokemon);
+    })
   }
+
 
   return  {
       add: add,
