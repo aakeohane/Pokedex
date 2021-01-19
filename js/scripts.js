@@ -13,6 +13,7 @@ let pokemonRepository = (function () {
   function getAll() {
       return pokemonList;
   }
+  
 let spinner = document.querySelector('#spinner');
 
   function showLoadingMessage() {
