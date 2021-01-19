@@ -13,7 +13,9 @@ let pokemonRepository = (function () {
   function getAll() {
       return pokemonList;
   }
-  
+
+// functions for loading spinner when fetching data
+
 let spinner = document.querySelector('#spinner');
 
   function showLoadingMessage() {
