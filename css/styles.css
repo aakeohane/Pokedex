@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+ul  {
+  list-style: none;
+}
+
 .pokemonButtonStyle  {
 	box-shadow: inset 6px -2px 11px -6px #23395e;
 	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
@@ -19,6 +23,7 @@
   margin: 4px 2px;
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #263666;
+  list-style-type: none;
   transition-duration: 1s;
 }
 
@@ -30,4 +35,35 @@
 .pokemonButtonStyle:active  {
 	position: relative;
 	top: 1px;
+}
+
+#spinner:not([hidden]) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#spinner::after {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #f25a41;
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
