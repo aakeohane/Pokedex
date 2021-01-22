@@ -86,9 +86,6 @@ ul  {
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here */
   display: block;
-}
-
-#modal-container.is-visible {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
@@ -111,29 +108,43 @@ ul  {
 
 .modal {
   margin: auto;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   background: #fff;
   padding: 15px;
   width: 100%;
-  max-width: 700px;
+  max-width: 500px;
   text-align: center;
 }
 
 .modal-close {
+  color: #aaaaaa;
   float: right;
-  -webkit-appearance: none;
+  font-size: 28px;
+  font-weight: bold;
   background: none;
-  color: #777;
-  border: 1em, #777;
-  border-width: 50%;
+  border: none;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal h1 {
   margin-top: 0;
   text-transform: capitalize;
+  margin-left: 40px;
 }
 
 .modal p {
   margin-bottom: 0;
+  width: auto;
+}
+
+.modal img  {
+  max-width: 250px;
+  width: 100%;
 }
