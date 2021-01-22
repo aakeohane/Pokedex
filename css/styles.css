@@ -3,47 +3,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.pokedex  {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: center;
-}
-
-/* buttons for each pokemon */
-
-ul  {
-  list-style: none;
-}
-
-.pokemonButtonStyle  {
-	box-shadow: inset 6px -2px 11px -6px #23395e;
-	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
-	background-color: #2e466e;
-	border-radius: 20px;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 18px;
-	padding: 10px 25px;
-  margin: 4px 2px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #263666;
-  list-style-type: none;
-  transition-duration: 1s;
-}
-
-.pokemonButtonStyle:hover  {
-	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-	background-color: #415989;
-}
-
-.pokemonButtonStyle:active  {
-	position: relative;
-	top: 1px;
-}
-
 /* Loading animation and keyframe */
 
 #spinner:not([hidden]) {
@@ -76,6 +35,47 @@ ul  {
     transform: rotate(360deg);
   }
 }
+.pokedex  {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  align-items: center;
+}
+
+/* buttons for each pokemon */
+
+ul  {
+  list-style: none;
+}
+
+.pokemonButtonStyle  {
+	box-shadow: inset 6px -2px 11px -6px #23395e;
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 20px;
+	display: grid;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 18px;
+  text-transform: capitalize;
+	padding: 10px 25px;
+  margin: 4px 2px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+  list-style-type: none;
+  transition-duration: 1s;
+}
+
+.pokemonButtonStyle:hover  {
+	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	background-color: #415989;
+}
+
+.pokemonButtonStyle:active  {
+	position: relative;
+	top: 1px;
+}
 
 /* modal design */
 
@@ -89,7 +89,6 @@ ul  {
 }
 
 #modal-container.is-visible {
-  display: block;
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
@@ -118,7 +117,7 @@ ul  {
   padding: 15px;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  text-align: center;
 }
 
 .modal-close {
@@ -132,6 +131,7 @@ ul  {
 
 .modal h1 {
   margin-top: 0;
+  text-transform: capitalize;
 }
 
 .modal p {
