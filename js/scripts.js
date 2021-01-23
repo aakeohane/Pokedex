@@ -34,8 +34,14 @@ let spinner = document.querySelector('#spinner');
       showModal(pokemon);
     });
   }
-
-
+//   let msg = typeLength();
+//   function typeLength() {
+//     if(pokemon.types.length > 1){
+//   msg='Types: ' + pokemon.types.join(', ');
+//   }
+//   else{
+//   msg='Type: ' + pokemon.types;
+// }};
 
   function showModal(pokemon)  {
     modalContainer.classList.add('is-visible');
@@ -58,7 +64,8 @@ let spinner = document.querySelector('#spinner');
 
 
     let pokemonTypes = document.createElement('p');
-    pokemonTypes.innerText = 'Type: ' + pokemon.types;
+    pokemonTypes.innerText = pokemon.types;
+
 
     let pokemonHeight = document.createElement('p');
     pokemonHeight.innerText = 'Height: ' + pokemon.height;
@@ -73,7 +80,7 @@ let spinner = document.querySelector('#spinner');
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(pokemonName);
-    modal.appendChild(pokemonTypes);
+    // modal.appendChild(pokemonTypes);
     modal.appendChild(pokemonHeight);
     modal.appendChild(pokemonWeight);
     modal.appendChild(pokeImage);
