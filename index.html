@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple JS App</title>
+    <title>Pok&eacute;dex</title>
+    <link rel="icon" href="img/favicon-8-bit.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light">
       <a class="navbar-brand" href="index.html">
-        <img src="img/pokeball.png"> Pok&eacute;dex
+        <img src="img/black-white-poke-ball.png" width="35" alt="Pokeball"> Pok&eacute;dex
         <span class="sr-only">(current)</span>
       </a>
       <button
@@ -27,7 +28,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
+<!-- add more tabs/navigation here later -->
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
@@ -45,6 +46,7 @@
     <div hidden id="spinner"></div>
     <div class="pokedex">
       <ul class="list-group pokemon-list"></ul>
+      <!-- list of appended buttons -->
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="pokemon-modal">

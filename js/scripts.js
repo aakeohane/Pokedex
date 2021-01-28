@@ -6,8 +6,6 @@ let pokemonRepository = (function () {
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=898";
 
 
-
-
   function add(pokemon) {
       pokemonList.push(pokemon);
   }
@@ -41,7 +39,6 @@ let spinner = document.querySelector('#spinner');
     button.classList.add("btn-primary");
     button.setAttribute("data-target", "#pokemon-modal");
     button.setAttribute("data-toggle", "modal");
-    button.setAttribute("data-bs-name", pokemon.name);
     pokemonList.appendChild(button);
 
     // shows modal when pokemon button is clicked -- event listener
@@ -58,6 +55,7 @@ let spinner = document.querySelector('#spinner');
     });
   }
 
+// function for declaring a space and type to types: string
   function typeLength (pokemon) {
     return pokemon.types.length > 1
      ? 'Types: ' + pokemon.types.join(', ')
