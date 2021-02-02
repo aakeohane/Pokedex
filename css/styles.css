@@ -53,20 +53,6 @@ ul  {
 }
 
 .pokemonButtonStyle  {
-	/* box-shadow: inset 6px -2px 11px -6px #23395e;
-	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
-	background-color: #2e466e;
-	display: grid;
-	cursor: pointer;
-	color: #ffffff;
-	font-size: 18px;
-  text-transform: capitalize;
-  padding: 10px 25px;
-  margin: 4px 2px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #263666;
-  list-style-type: none;
-  transition-duration: 1s; */
   box-shadow: inset 0px 1px 0px 0px #f5978e;
   background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
   background-color: #f24537;

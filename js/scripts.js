@@ -1,4 +1,5 @@
-// Beginning of iife
+/* global $:readonly */
+// Beginning of IIFE
 
 let pokemonRepository = (function () {
 
@@ -42,7 +43,7 @@ let spinner = document.querySelector('#spinner');
     pokemonList.appendChild(button);
 
     // shows modal when pokemon button is clicked -- event listener
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
       showDetails(pokemon);
     });
   }
@@ -66,14 +67,13 @@ let spinner = document.querySelector('#spinner');
 
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
-    let modalHeader = $('.modal-header');
 
     modalTitle.empty();
     modalBody.empty();
 
-    let pokemonName = $('<h1>' + pokemon.name + ' ' + '  #' + pokemon.id + '</h1>');
+    let pokemonName = $('<h1>' + pokemon.name + '  #' + pokemon.id + '</h1>');
 
-    let pokeImage = $("<img class='modal-img' style='width:75%'>");
+    let pokeImage = $('<img class=\'modal-img\' style=\'width:75%\'>');
     pokeImage.attr('src', pokemon.imageUrl);
 
     let pokemonHeight = $('<p>' + 'Height: ' + pokemon.height / 0.1 + ' cm' + '</p>');
