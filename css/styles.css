@@ -1,6 +1,7 @@
 html,
 body {
   margin-top: 35px;
+  font-family: 'Signika', sans-serif;
 }
 
 h1  {
@@ -52,13 +53,12 @@ ul  {
 }
 
 .pokemonButtonStyle  {
-	box-shadow: inset 6px -2px 11px -6px #23395e;
+	/* box-shadow: inset 6px -2px 11px -6px #23395e;
 	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
 	background-color: #2e466e;
 	display: grid;
 	cursor: pointer;
 	color: #ffffff;
-	font-family: Arial;
 	font-size: 18px;
   text-transform: capitalize;
   padding: 10px 25px;
@@ -66,15 +66,34 @@ ul  {
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #263666;
   list-style-type: none;
-  transition-duration: 1s;
+  transition-duration: 1s; */
+  box-shadow: inset 0px 1px 0px 0px #f5978e;
+  background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+  background-color: #f24537;
+  border-radius: 6px;
+  border: 1px solid #d02718;
+  display: grid;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 6px 24px;
+  margin: 4px 2px;
+  text-transform: capitalize;
+  text-decoration: none;
+  list-style-type: none;
+  text-shadow: 0px 1px 0px #810e05;
 }
 
 .pokemonButtonStyle:hover  {
-	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-	background-color: #415989;
+  background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	background-color:#c62d1f;
 }
 
 .pokemonButtonStyle:active  {
 	position: relative;
 	top: 1px;
+}
+
+#pokemon-search::placeholder {
+  font-size: 14px;
 }

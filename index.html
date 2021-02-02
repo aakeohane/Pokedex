@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pok&eacute;dex</title>
     <link rel="icon" href="img/favicon-8-bit.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@500;700&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light">
       <a class="navbar-brand" href="index.html">
-        <img src="img/black-white-poke-ball.png" width="35" alt="Pokeball"> Pok&eacute;dex
+        <img src="img/black-white-poke-ball.png" width="35" alt="Pokeball"> <strong> Pok&eacute;dex </strong>
         <span class="sr-only">(current)</span>
       </a>
       <button
@@ -30,28 +32,27 @@
         <ul class="navbar-nav mr-auto">
 <!-- add more tabs/navigation here later -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" id="searchForm">
           <input
-            id="myInput"
-            onkeyup="search()"
+            id="pokemon-search"
+            onsubmit="searchPokemon()"
             class="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder="Search Pok&eacute;mon"
             aria-label="Search"
           />
-        </form>
-      </div>
+        </div>
     </nav>
 
     <div hidden id="spinner"></div>
     <div class="pokedex">
-      <ul class="list-group pokemon-list"></ul>
+      <ul class="list-group pokemon-list" id="searchgroup"></ul>
       <!-- list of appended buttons -->
     </div>
-
-    <div class="modal" tabindex="-1" role="dialog" id="pokemon-modal">
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="pokemon-modal">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-center">
           <div class="modal-header">
             <h5 class="modal-title"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

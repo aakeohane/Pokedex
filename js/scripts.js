@@ -3,7 +3,7 @@
 let pokemonRepository = (function () {
 
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=898";
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=898';
 
 
   function add(pokemon) {
@@ -29,20 +29,20 @@ let spinner = document.querySelector('#spinner');
   // lists all the pokemon with a button
 
   function addListItem(pokemon)  {
-    let pokemonList = document.querySelector(".list-group");
-    let button = document.createElement("button");
+    let pokemonList = document.querySelector('.list-group');
+    let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add("list-group-item");
-    button.classList.add("pokemonButtonStyle");
-    button.setAttribute("type", "button");
-    button.classList.add("btn");
-    button.classList.add("btn-primary");
-    button.setAttribute("data-target", "#pokemon-modal");
-    button.setAttribute("data-toggle", "modal");
+    button.classList.add('list-group-item');
+    button.classList.add('pokemonButtonStyle');
+    button.setAttribute('type', 'button');
+    button.classList.add('btn');
+    button.classList.add('btn-primary');
+    button.setAttribute('data-target', '#pokemon-modal');
+    button.setAttribute('data-toggle', 'modal');
     pokemonList.appendChild(button);
 
     // shows modal when pokemon button is clicked -- event listener
-    button.addEventListener("click", function (event) {
+    button.addEventListener('click', function (event) {
       showDetails(pokemon);
     });
   }
@@ -71,7 +71,7 @@ let spinner = document.querySelector('#spinner');
     modalTitle.empty();
     modalBody.empty();
 
-    let pokemonName = $('<h1>' + pokemon.name + '</h1>');
+    let pokemonName = $('<h1>' + pokemon.name + ' ' + '  #' + pokemon.id + '</h1>');
 
     let pokeImage = $("<img class='modal-img' style='width:75%'>");
     pokeImage.attr('src', pokemon.imageUrl);
@@ -80,11 +80,10 @@ let spinner = document.querySelector('#spinner');
 
     let pokemonWeight = $('<p>' + 'Weight: ' + pokemon.weight / 10 + ' kg' + '</p>');
 
-    let pokemonTypes = document.createElement('p');
-    pokemonTypes.innerText = typeLength(pokemon);
+    let pokemonTypes = $('<p>' + typeLength(pokemon) + '</p>');
 
-    modalTitle.append(pokeImage);
-    modalBody.append(pokemonName);
+    modalBody.append(pokeImage);
+    modalTitle.append(pokemonName);
     modalBody.append(pokemonHeight);
     modalBody.append(pokemonWeight);
     modalBody.append(pokemonTypes);
@@ -120,12 +119,13 @@ let spinner = document.querySelector('#spinner');
     }).then(function (details) {
       hideLoadingSpinner();
       // Adds the details to the item from the api
-      item.imageUrl = details.sprites.other["official-artwork"].front_default;
+      item.id = details.id;
+      item.imageUrl = details.sprites.other['official-artwork'].front_default;
       item.height = details.height;
       item.weight = details.weight;
       item.types = [];
-      details.types.forEach(function (itemType) {
-          item.types.push(itemType.type.name);
+      details.types.forEach(function (pokeType) {
+          item.types.push(pokeType.type.name);
       })
     }).catch(function (e) {
       console.error(e);
@@ -141,11 +141,51 @@ let spinner = document.querySelector('#spinner');
       loadDetails: loadDetails,
       showDetails: showDetails
   };
+
 })();
 // End of IIFE
 
-// Loads the list of buttons for each pokemon
+// jQuery search function (w3 method and MUCH faster)
 
+$(document).ready(function()  {
+  $('#pokemon-search').on('keyup', function() {
+    let name = $(this).val().toLowerCase();
+    $('.list-group-item').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(name) > -1);
+    });
+  });
+});
+
+// Listens for enter button and returns false so page doesnt reload on enter
+
+function searchPokemon() {
+  document.querySelector('#searchForm').addEventListener('submit', function(e) {
+      searchPokemon(document.getElementById('pokemon-search'));
+      e.preventDefault();
+  }, false);
+}
+searchPokemon();
+
+// vanilla Javascript search function
+
+// function searchPokemon() {
+//     let input = document.querySelector("#pokemon-search").value;
+//     let filter = input.toUpperCase();
+//     let searchNames = document.querySelectorAll(".list-group-item");
+//     for (i = 0; i < searchNames.length; i++) {
+//
+//         let txtValue = searchNames[i].innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//             searchNames[i].style.display = "";
+//         } else {
+//             searchNames[i].style.display = "none";
+//         }
+//     }
+// }
+
+
+
+// Loads the list of buttons for each pokemon
 pokemonRepository.loadList().then(function() {
   // Now the data is loaded!
   pokemonRepository.getAll().forEach(function(pokemon)  {
