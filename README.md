@@ -9,4 +9,4 @@ Things to include for portfolio
 3) Project dependencies (e.g., JavaScript version, ESLint rules)
 4) Which API the project uses
 * Write about some difficulties and solutions like how I was able to find the error without using a linter (used repl it)
-*why i used jQuery in some areas of code rather than vanilla JS (faster search features)
+* why i used jQuery in some areas of code rather than vanilla JS (faster search features)
