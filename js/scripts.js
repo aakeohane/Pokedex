@@ -161,7 +161,7 @@ $(document).ready(function()  {
     });
   });
   // Listens for enter button and returns false so page doesnt reload on enter
-  $('#pokemon-search').bind('keydown', function(e) {
+  $('#pokemon-search').on('keydown', function(e) {
       if (e.keyCode == 13) {
           return false;
       }
