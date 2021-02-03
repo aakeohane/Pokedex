@@ -64,7 +64,6 @@ let spinner = document.querySelector('#spinner');
   }
 
   function showModal(pokemon)  {
-
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
 
@@ -184,9 +183,6 @@ $(document).ready(function()  {
 //         }
 //     }
 // }
-
-
-
 
 // Loads the list of buttons for each pokemon
 pokemonRepository.loadList().then(function() {
