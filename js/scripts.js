@@ -153,23 +153,20 @@ $(document).ready(function()  {
       $(this).toggle($(this).text().toLowerCase().indexOf(name) > -1);
     });
   });
-// the 'search' event allows the buttons to append when you click the 'x' delete button (chrome) in the search bar
+  // the 'search' event allows the list to reload when you click the 'x' delete button (chrome) in the search bar
   $('#pokemon-search').on('search', function() {
     let name = $(this).val().toLowerCase();
     $('.list-group-item').filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(name) > -1);
     });
   });
+  // Listens for enter button and returns false so page doesnt reload on enter
   $('#pokemon-search').bind('keydown', function(e) {
       if (e.keyCode == 13) {
           return false;
       }
   });
 });
-
-// Listens for enter button and returns false so page doesnt reload on enter
-
-
 
 // vanilla Javascript search function
 
