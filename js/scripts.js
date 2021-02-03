@@ -87,7 +87,6 @@ let spinner = document.querySelector('#spinner');
     modalBody.append(pokemonHeight);
     modalBody.append(pokemonWeight);
     modalBody.append(pokemonTypes);
-
   }
 
   // fetches and loads the details for each pokemon through the apiURL
@@ -154,34 +153,41 @@ $(document).ready(function()  {
       $(this).toggle($(this).text().toLowerCase().indexOf(name) > -1);
     });
   });
+// the 'search' event allows the buttons to append when you click the 'x' delete button (chrome) in the search bar
+  $('#pokemon-search').on('search', function() {
+    let name = $(this).val().toLowerCase();
+    $('.list-group-item').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(name) > -1);
+    });
+  });
+  $('#pokemon-search').bind('keydown', function(e) {
+      if (e.keyCode == 13) {
+          return false;
+      }
+  });
 });
 
 // Listens for enter button and returns false so page doesnt reload on enter
 
-function searchPokemon() {
-  document.querySelector('#searchForm').addEventListener('submit', function(e) {
-      searchPokemon(document.getElementById('pokemon-search'));
-      e.preventDefault();
-  }, false);
-}
-searchPokemon();
+
 
 // vanilla Javascript search function
 
 // function searchPokemon() {
-//     let input = document.querySelector("#pokemon-search").value;
+//     let input = document.querySelector('#pokemon-search').value;
 //     let filter = input.toUpperCase();
-//     let searchNames = document.querySelectorAll(".list-group-item");
-//     for (i = 0; i < searchNames.length; i++) {
+//     let searchNames = document.querySelectorAll('.list-group-item');
+//     for (let i = 0; i < searchNames.length; i++) {
 //
 //         let txtValue = searchNames[i].innerText;
 //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//             searchNames[i].style.display = "";
+//             searchNames[i].style.display = '';
 //         } else {
-//             searchNames[i].style.display = "none";
+//             searchNames[i].style.display = 'none';
 //         }
 //     }
 // }
+
 
 
 
