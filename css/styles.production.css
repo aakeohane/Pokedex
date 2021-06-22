@@ -8,10 +8,10 @@
 html,
 body {
   margin-top: 35px;
-  font-family: 'Signika', sans-serif;
+  font-family: "Signika", sans-serif;
 }
 
-h1  {
+h1 {
   text-transform: capitalize;
 }
 /* Loading animation and keyframe */
@@ -26,11 +26,11 @@ h1  {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 #spinner::after {
@@ -42,54 +42,60 @@ h1  {
   border-radius: 100%;
   will-change: transform;
   -webkit-animation: spin 1s infinite linear;
-          animation: spin 1s infinite linear
+  animation: spin 1s infinite linear;
 }
 
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
-.pokedex  {
+.pokedex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   max-width: 100%;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /* buttons for each pokemon */
 
-ul  {
+ul {
   list-style: none;
 }
 
-.pokemonButtonStyle  {
+.pokemonButtonStyle {
   -webkit-box-shadow: inset 0px 1px 0px 0px #f5978e;
-          box-shadow: inset 0px 1px 0px 0px #f5978e;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #f24537), to(#c62d1f));
+  box-shadow: inset 0px 1px 0px 0px #f5978e;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(5%, #f24537),
+    to(#c62d1f)
+  );
   background: -o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
   background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
   background-color: #f24537;
@@ -108,16 +114,22 @@ ul  {
   text-shadow: 0px 1px 0px #810e05;
 }
 
-.pokemonButtonStyle:hover  {
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(5%, #c62d1f), to(#f24537));
-  background:-o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
-  background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-	background-color:#c62d1f;
+.pokemonButtonStyle:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(5%, #c62d1f),
+    to(#f24537)
+  );
+  background: -o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+  background-color: #c62d1f;
 }
 
-.pokemonButtonStyle:active  {
-	position: relative;
-	top: 1px;
+.pokemonButtonStyle:active {
+  position: relative;
+  top: 1px;
 }
 
 #pokemon-search::-webkit-input-placeholder {

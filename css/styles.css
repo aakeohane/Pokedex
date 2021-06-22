@@ -1,10 +1,10 @@
 html,
 body {
   margin-top: 35px;
-  font-family: 'Signika', sans-serif;
+  font-family: "Signika", sans-serif;
 }
 
-h1  {
+h1 {
   text-transform: capitalize;
 }
 /* Loading animation and keyframe */
@@ -28,7 +28,7 @@ h1  {
   border-top: 3px solid #f25a41;
   border-radius: 100%;
   will-change: transform;
-  animation: spin 1s infinite linear
+  animation: spin 1s infinite linear;
 }
 
 @keyframes spin {
@@ -39,7 +39,7 @@ h1  {
     transform: rotate(360deg);
   }
 }
-.pokedex  {
+.pokedex {
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -48,11 +48,11 @@ h1  {
 
 /* buttons for each pokemon */
 
-ul  {
+ul {
   list-style: none;
 }
 
-.pokemonButtonStyle  {
+.pokemonButtonStyle {
   box-shadow: inset 0px 1px 0px 0px #f5978e;
   background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
   background-color: #f24537;
@@ -70,16 +70,22 @@ ul  {
   text-shadow: 0px 1px 0px #810e05;
 }
 
-.pokemonButtonStyle:hover  {
-  background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-	background-color:#c62d1f;
+.pokemonButtonStyle:hover {
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+  background-color: #c62d1f;
 }
 
-.pokemonButtonStyle:active  {
-	position: relative;
-	top: 1px;
+.pokemonButtonStyle:active {
+  position: relative;
+  top: 1px;
 }
 
 #pokemon-search::placeholder {
   font-size: 14px;
+}
+
+@media only screen and (max-width: 575px) {
+  body {
+    margin-top: 75px;
+  }
 }
