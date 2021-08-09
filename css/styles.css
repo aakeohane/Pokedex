@@ -1,6 +1,5 @@
 html,
 body {
-  margin-top: 35px;
   font-family: "Signika", sans-serif;
 }
 
@@ -39,31 +38,28 @@ h1 {
     transform: rotate(360deg);
   }
 }
-.pokedex {
+
+.pokedexList {
   display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0 20px;
 }
 
 /* buttons for each pokemon */
-
-ul {
-  list-style: none;
-}
-
 .pokemonButtonStyle {
   box-shadow: inset 0px 1px 0px 0px #f5978e;
   background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
   background-color: #f24537;
   border-radius: 6px;
   border: 1px solid #d02718;
-  display: grid;
   cursor: pointer;
   color: #ffffff;
-  font-size: 18px;
-  padding: 6px 24px;
-  margin: 4px 2px;
+  font-size: 24px;
+  width: 500px;
+  padding: 30px 24px;
+  margin: 10px 2px;
   text-transform: capitalize;
   text-decoration: none;
   list-style-type: none;
@@ -82,10 +78,4 @@ ul {
 
 #pokemon-search::placeholder {
   font-size: 14px;
-}
-
-@media only screen and (max-width: 575px) {
-  body {
-    margin-top: 75px;
-  }
 }

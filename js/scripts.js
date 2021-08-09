@@ -15,9 +15,8 @@ let pokemonRepository = (function () {
       return pokemonList;
   }
 
-// functions for loading spinner when fetching data
-
-let spinner = document.querySelector('#spinner');
+  // functions for loading spinner when fetching data
+  let spinner = document.querySelector('#spinner');
 
   function showLoadingSpinner() {
     spinner.removeAttribute('hidden');
@@ -28,10 +27,15 @@ let spinner = document.querySelector('#spinner');
   }
 
   // lists all the pokemon with a button
-
   function addListItem(pokemon)  {
     let pokemonList = document.querySelector('.list-group');
     let button = document.createElement('button');
+
+    // let pokeSprite = $('<img style=\'width:75%\'/>');
+    // pokeSprite.attr('src', pokemon.sprite);
+    // console.log(pokeSprite)
+  
+
     button.innerText = pokemon.name;
     button.classList.add('list-group-item');
     button.classList.add('pokemonButtonStyle');
@@ -41,6 +45,7 @@ let spinner = document.querySelector('#spinner');
     button.setAttribute('data-target', '#pokemon-modal');
     button.setAttribute('data-toggle', 'modal');
     pokemonList.appendChild(button);
+    // button.append(pokeSprite)
 
     // shows modal when pokemon button is clicked -- event listener
     button.addEventListener('click', function () {
@@ -49,10 +54,11 @@ let spinner = document.querySelector('#spinner');
   }
 
   // opens modal with all the pokedetails
-
   function showDetails(pokemon) {
+    showLoadingSpinner();
     loadDetails(pokemon).then(function  ()  {
       showModal(pokemon);
+      hideLoadingSpinner();
     });
   }
 
@@ -95,13 +101,20 @@ let spinner = document.querySelector('#spinner');
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
-      hideLoadingSpinner();
-      json.results.forEach(function (item) {
+      /* loads all pokemon
+       *json.results.forEach(function (item) {
+       *let pokemon...
+       */
+
+      // filters results to just 6 random pokemon
+      let randomPoke = json.results.sort(() => 0.5 - Math.random());
+      randomPoke.slice(0, 6).map((item) => {
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
         add(pokemon);
+        hideLoadingSpinner();
       });
     }).catch(function (e) {
       hideLoadingSpinner();
@@ -110,14 +123,13 @@ let spinner = document.querySelector('#spinner');
   }
 
   function loadDetails(item) {
-    showLoadingSpinner();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      hideLoadingSpinner();
       // Adds the details to the item from the api
       item.id = details.id;
+      item.sprite = details.sprites.front_default;
       item.imageUrl = details.sprites.other['official-artwork'].front_default;
       item.height = details.height;
       item.weight = details.weight;
@@ -144,7 +156,6 @@ let spinner = document.querySelector('#spinner');
 // End of IIFE
 
 // jQuery search function (w3 method and MUCH faster)
-
 $(document).ready(function()  {
   $('#pokemon-search').on('keyup', function() {
     let name = $(this).val().toLowerCase();

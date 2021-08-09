@@ -12,19 +12,18 @@
     href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
       <a class="navbar-brand" href="index.html">
         <img src="img/black-white-poke-ball.png" width="35" alt="Pokeball"> <strong> Pok&eacute;dex </strong>
         <span class="sr-only">(current)</span>
       </a>
       <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
         data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,7 +32,7 @@
         <ul class="navbar-nav mr-auto">
 <!-- add more tabs/navigation here later -->
         </ul>
-        <form class="form-inline my-2 my-lg-0" id="searchForm">
+        <form class="form-inline my-2 my-lg-0 d-flex" id="searchForm">
           <input
             id="pokemon-search"
             onsubmit="searchPokemon()"
@@ -47,13 +46,14 @@
     </nav>
 
     <div hidden id="spinner"></div>
-    <div class="pokedex">
-      <ul class="list-group pokemon-list" id="searchgroup"></ul>
+    <div class="pokeContainer">
+      <div class="list-group pokemon-list pokedexList" id="searchgroup"></div>
       <!-- list of appended buttons -->
     </div>
     <!-- Modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="pokemon-modal">
       <div class="modal-dialog" role="document">
+        
         <div class="modal-content text-center">
           <div class="modal-header">
             <h5 class="modal-title"></h5>
@@ -63,6 +63,10 @@
           </div>
           <div class="modal-body">
             <p></p>
+            <div hidden id="spinner"></div>
+            <!-- <div class="spinner-border" role="status">
+              <div class="sr-only"></div>
+            </div> -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -75,6 +79,6 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       <script src="js/promise-polyfill.js"></script>
       <script src="js/fetch-polyfill.js"></script>
-      <script src="dist/minifiedscripts.js"></script>
+      <script src="js/scripts.js"></script>
   </body>
 </html>
