@@ -101,14 +101,12 @@ let pokemonRepository = (function () {
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
-      /* loads all pokemon
-       *json.results.forEach(function (item) {
-       *let pokemon...
-       */
+      // loads all pokemon
+      json.results.forEach(function (item) {
 
       // filters results to just 6 random pokemon
-      let randomPoke = json.results.sort(() => 0.5 - Math.random());
-      randomPoke.slice(0, 6).map((item) => {
+      // let randomPoke = json.results.sort(() => 0.5 - Math.random());
+      // randomPoke.slice(0, 6).map((item) => {
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
